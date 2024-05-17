@@ -162,22 +162,26 @@ try{
          console.log("the point_possible cannot be string")
       }
     
-  //summustion due date 
-   
-  const submission_date = LearnerSubmissions.submission_date
-  const due_at_date=AssignmentGroup.due_at
+  //submission due date 
+
+
+  const submission_date = LearnerSubmissions[0].submission_date
+   console.log(submission_date)
+    const due_at_date = AssignmentGroup.assignments[1].due_at
+   console.log(due_at_date)
   if (submission_date> due_at_date){
-      const within_due_date= [LearnerSubmissions.submission].score;
-  } 
+      const within_due_date= [LearnerSubmissions].submission.score;
+      console.log(within_due_date)
+    }    
  else{
      const after_due_date = ([LearnerSubmissions.submission].score)-([LearnerSubmissions.submission].score*.1)
-     
+     console.log(after_due_date)
  }
 
 //calcualte score by learner_id_125
+
 const learner_id_125=(LearnerSubmissions.filter(
   (element) => element.learner_id === 125))
-
   
 
 
