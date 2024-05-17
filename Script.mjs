@@ -126,16 +126,15 @@ passToFunction()
 const course_id_courseinf=CourseInfo.id
 const course_id_assgroup =AssignmentGroup.course_id
 try{
-if(course_id_courseinf === course_id_assgroup){
+if(course_id_courseinf !== course_id_assgroup){
+  }
   
 }
-else {
-  throw"error--Please insert the correct cours_id"}
-}
 catch(error){
-  console.log(error)
+  console.log("error--Please insert the correct cours_id")
 }
-console.log("Please insert the correct course_id" )
+
+
   
 //handling potential error , if points-possible
 const points_possible_err= AssignmentGroup.assignments.points_possible
@@ -155,10 +154,35 @@ try{
 
  }   
 // What if a value that you are expecting to be a number is instead a string? 
-// const points_possible_err= AssignmentGroup.assignments.points_possible
-//     if (typeof points_possible_err ! =='string'){
+  
+      try {
+        if (typeof points_possible_err !=='string'){
+        }
+      } catch (error) {
+         console.log("the point_possible cannot be string")
+      }
+    
+  //summustion due date 
+   
+  const submission_date = LearnerSubmissions.submission_date
+  const due_at_date=AssignmentGroup.due_at
+  if (submission_date> due_at_date){
+      const within_due_date= [LearnerSubmissions.submission].score;
+  } 
+ else{
+     const after_due_date = ([LearnerSubmissions.submission].score)-([LearnerSubmissions.submission].score*.1)
+     
+ }
 
-//     }
+//calcualte score by learner_id_125
+const learner_id_125=(LearnerSubmissions.filter(
+  (element) => element.learner_id === 125))
+
+  
+
+
+
+
 
 // const learnerSubmission_learner_id=LearnerSubmissions.map(obj => 
 //     { if (obj.learner_id===125){
